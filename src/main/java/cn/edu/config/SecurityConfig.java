@@ -46,6 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    /**
+     *
+     * @Param [http]
+     * @Author huanghk
+     * @Date 2022/11/22 15:46
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -66,5 +72,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .authenticationEntryPoint(authenticationEntryPoint)
                 .accessDeniedHandler(accessDeniedHandler);
+
+        // 允许跨域
+        // http.cors();
     }
 }
